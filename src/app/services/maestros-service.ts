@@ -119,4 +119,19 @@ export class MaestrosService {
   public obtenerListaMaestros(): Observable<any> {
     return this.http.get<any>(`${environment.url_api}/lista-maestros/`, { headers: this.getAuthHeaders() });
   }
+
+  //Función para obtener un maestro por su ID
+  public obtenerMaestroPorId(id: number): Observable<any> {
+    return this.http.get<any>(`${environment.url_api}/maestros/?id=${id}`, { headers: this.getAuthHeaders() });
+  }
+
+  //Función para actualizar los datos de un maestro, conectando con el backend
+  public actualizarMaestro(data: any): Observable<any> {
+    return this.http.put<any>(`${environment.url_api}/maestros/`, data, { headers: this.getAuthHeaders() });
+  }
+
+  //Función para eliminar un maestro por su ID, conectando con el backend
+  public eliminarMaestro(id: number): Observable<any> {
+    return this.http.delete<any>(`${environment.url_api}/maestros/?id=${id}`, { headers: this.getAuthHeaders() });
+  }
 }

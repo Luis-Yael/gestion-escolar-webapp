@@ -23,11 +23,18 @@ import {MatCheckboxModule} from '@angular/material/checkbox';
 import {MatSidenavModule} from '@angular/material/sidenav';
 import {MatTableModule} from '@angular/material/table';
 import { MatPaginatorModule } from '@angular/material/paginator';
+import {MatDialogModule} from '@angular/material/dialog';
 
 /* =========================
    ngx-mask (inputs de código)
    ========================= */
 import { NgxMaskDirective, NgxMaskPipe } from 'ngx-mask';
+
+/* =========================
+    Gráficas
+   ========================= */
+// Modulo para las gráficas (ng2-charts ahora exporta directivas standalone)
+import { BaseChartDirective } from 'ng2-charts';
 
 /**
  * SHARED_IMPORTS
@@ -60,5 +67,7 @@ export const SHARED_IMPORTS = [
   MatPaginatorModule,
   NgxMaskDirective,
   NgxMaskPipe,
-  NgClass
+  NgClass,
+  MatDialogModule,
+  BaseChartDirective,
 ];

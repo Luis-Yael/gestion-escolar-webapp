@@ -117,8 +117,30 @@ export class AlumnosService {
     //Return arreglo
     return error;
   }
-
+  //Función para registrar un alumno, esta función se llamará en el método registrar() dentro del screen registro-usuarios-screen.ts
   public registrarAlumno(data: any): Observable<any> {
     return this.http.post<any>(`${environment.url_api}/alumnos/`, data, { headers: this.getAuthHeaders() });
   }
+
+  //Función para obtener la lista de alumnos, esta función se llamará en el método cargarAlumnos() dentro del screen lista-alumnos-screen.ts
+  public obtenerListaAlumnos(): Observable<any> {
+    return this.http.get<any>(`${environment.url_api}/alumnos/`, { headers: this.getAuthHeaders() });
+  }
+
+  //Función para obtener un alumno por su ID, esta función se llamará en el método obtenerUsuarioPorId() dentro del screen registro-usuarios-screen.ts
+  public obtenerAlumnoPorId(id: number): Observable<any> {
+    return this.http.get<any>(`${environment.url_api}/alumnos/?id=${id}`, { headers: this.getAuthHeaders() });
+  }
+
+  //Función para actualizar un alumno, esta función se llamará en el método actualizar() dentro del screen registro-usuarios-screen.ts
+  public actualizarAlumno(data: any): Observable<any> {
+    return this.http.put<any>(`${environment.url_api}/alumnos/`, data, { headers: this.getAuthHeaders() });
+  }
+
+  //Función para eliminar un alumno, esta función se llamará en el método eliminar() dentro del modal eliminar-user-modal.ts
+  public eliminarAlumno(id: number): Observable<any> {
+    return this.http.delete<any>(`${environment.url_api}/alumnos/?id=${id}`, { headers: this.getAuthHeaders() });
+  }
+
+
 }

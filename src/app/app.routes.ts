@@ -47,6 +47,10 @@ export const routes: Routes = [
         path: 'maestros',
         loadComponent: () => import('./screens/maestros-screen/maestros-screen').then(m => m.MaestrosScreen),
       },
+      {
+        path: 'graficas',
+        loadComponent: () => import('./screens/graficas-screen/graficas-screen').then(m => m.GraficasScreen),
+      }
     ]
   },
 
